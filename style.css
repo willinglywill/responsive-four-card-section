@@ -1,0 +1,293 @@
+@font-face {
+    src: url(./Poppins/Poppins-Light.ttf);
+    font-weight: 200;
+    font-family: light-weight;
+
+}
+
+@font-face {
+    src: url(./Poppins/Poppins-Medium.ttf);
+    font-family: medium-weight;
+}
+
+@font-face {
+    src: url(./Poppins/Poppins-SemiBold.ttf);
+    font-family: bold-weight;
+}
+
+
+
+
+:root {
+
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+
+    /* ### Neutral */
+
+    --very-dark-blue: hsl(234, 12%, 34%);
+    --grayish-blue: hsl(229, 6%, 66%);
+    --very-light-gray: hsl(0, 0%, 98%);
+
+}
+
+
+
+
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100vh;
+    min-width: 100%;
+
+
+}
+
+body {
+    font-size: 15px;
+    background-color: var(--very-light-gray);
+}
+
+.container {
+    margin: 100px auto 0 auto;
+    width: 85%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+
+}
+
+.main__text {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+h3 {
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+}
+
+.lighter__title {
+    font-family: light-weight;
+    color: var(--very-dark-blue);
+    font-weight: 100;
+    letter-spacing: 1.2px;
+
+}
+
+.bolder__title {
+    font-family: bold-weight;
+    font-weight: 400;
+    letter-spacing: 1.8px;
+    color: var(--very-dark-blue);
+    margin-bottom: 30px;
+}
+
+.title__desc {
+    font-family: normal-weight;
+    color: var(--grayish-blue);
+    font-weight: 200;
+    line-height: 1.3rem;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+
+.card {
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+}
+
+.card:not(:last-of-type) {
+    margin-bottom: 2rem;
+
+}
+
+.card:last-of-type {
+    margin-bottom: 2rem;
+}
+
+.card__title {
+    text-align: left;
+    font-weight: 400;
+    color: var(--very-dark-blue);
+    font-family: bold-weight;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: .5rem;
+}
+
+.card__desc {
+    text-align: left;
+    font-weight: 200;
+    font-family: light-weight;
+    color: var(--grayish-blue);
+    font-size: 12px;
+    letter-spacing: 1px
+}
+
+.card__img {
+    width: 100%;
+    margin-top: 2rem;
+
+}
+
+.image {
+    display: block;
+    width: 60px;
+    margin-left: auto;
+    transition: transform .5s ease-in-out;
+
+
+}
+
+.image:hover {
+    transform: scale(1.2);
+}
+
+.supervisor .image {
+    filter: drop-shadow(5px 8px 20px var(--cyan));
+}
+
+.teambuilder .image {
+    filter: drop-shadow(5px 8px 20px var(--red));
+}
+
+.karma .image {
+    filter: drop-shadow(5px 8px 20px var(--orange));
+}
+
+.calculator .image {
+    filter: drop-shadow(5px 8px 20px var(--blue));
+}
+
+
+.supervisor {
+    border-top: 3px solid var(--cyan);
+}
+
+.teambuilder {
+    border-top: 3px solid var(--red);
+}
+
+.karma {
+    border-top: 3px solid var(--orange);
+}
+
+.calculator {
+    border-top: 3px solid var(--blue);
+}
+
+@media screen and (min-width:800px) {
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%
+    }
+
+    .wrapper {
+        flex-basis: 70%;
+    }
+
+    .card__img {
+        justify-self: right;
+        flex-basis: 20%;
+    }
+
+    .lighter__title,
+    .bolder__title {
+        font-size: 2rem;
+    }
+
+    .title__desc {
+        font-size: 1.3rem;
+        line-height: 2rem;
+    }
+
+    .card__title {
+        font-size: 1.2rem;
+    }
+
+    .card__desc {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width:1400px) {
+
+    .container {
+        display: grid;
+        grid-template-rows: repeat(2, 300px);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "main-text main-text main-text"
+            "supervisor teambuilder calculator"
+            "supervisor karma calculator";
+        grid-gap: 1rem 2rem;
+
+    }
+
+    .main__text {
+
+        grid-area: main-text;
+
+
+
+
+    }
+
+    .lighter__title,
+    .bolder__title {
+        font-size: 3rem;
+    }
+
+    .title__desc {
+        padding: 0 15rem;
+        font-size: 1.3rem;
+    }
+
+
+
+    .card {
+        height: 250px;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .image {
+        align-self: flex-end;
+    }
+
+    .supervisor {
+        grid-area: supervisor;
+    }
+
+    .teambuilder {
+        grid-area: teambuilder;
+        margin-bottom: 0 !important;
+    }
+
+    .karma {
+        grid-area: karma;
+    }
+
+    .calculator {
+        grid-area: calculator;
+    }
+}
